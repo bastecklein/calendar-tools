@@ -168,6 +168,10 @@ function isEventOnDate(date, event) {
     const startTime = startDate.getTime();
     const endTime = endDate.getTime();
 
+    console.log(nowTime);
+    console.log(startTime);
+    console.log(endTime);
+
     if(nowTime >= startTime && nowTime <= endTime) {
         return true;
     }
