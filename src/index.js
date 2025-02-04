@@ -21,21 +21,13 @@ export class Calendar {
 
     getEventsForDay(date, evts) {
 
-        console.log(evts);
-
         let useEvents = evts;
 
         if(!useEvents) {
-            console.log("use base evnts");
             useEvents = this.events;
         }
 
-        console.log(this.events);
-        console.log(useEvents);
-
         if(!useEvents || useEvents.length == 0) {
-            console.log("No events");
-            console.log(this);
             return [];
         }
 
@@ -183,8 +175,14 @@ function isEventOnDate(date, event) {
     console.log(startTime);
     console.log(endTime);
 
-    if(nowTime >= startTime && nowTime <= endTime) {
+    if(nowTime >= event.startTime && nowTime <= event.endTime) {
         return true;
+    }
+
+    if(year == startDate.getFullYear() && month == startDate.getMonth() && day == startDate.getDate()) {
+        if(year == endDate.getFullYear() && month == endDate.getMonth() && day == endDate.getDate()) {
+            return true;
+        }
     }
 
     return false;
