@@ -57,7 +57,7 @@ export class CalendarEvent {
 
         const now = new Date();
 
-        this.uid = guid();
+        this.uid = options.uid || guid();
 
         this.data = options.data || null;
 
