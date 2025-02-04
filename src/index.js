@@ -651,6 +651,8 @@ function calendarToDOM(options, calendar) {
     let firstWeek = true;
 
     while(moreWeeks) {
+        rowStyle += "1fr ";
+
         if(evenWeek) {
             weekClass = " calendar-week-even";
         } else {
@@ -718,6 +720,7 @@ function calendarToDOM(options, calendar) {
                     }
 
                     day++;
+                    fullCal.appendChild(dateBox);
                 }
             }
         }
