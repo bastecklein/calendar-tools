@@ -20,11 +20,14 @@ export class Calendar {
     }
 
     getEventsForDay(date, evts) {
-        if(!evts) {
-            evts = this.events;
+
+        let useEvents = evts;
+
+        if(!useEvents) {
+            useEvents = this.events;
         }
 
-        if(!evts || !evts.length == 0) {
+        if(!useEvents || !useEvents.length == 0) {
             console.log("No events");
             console.log(this);
             return [];
@@ -32,8 +35,8 @@ export class Calendar {
 
         const eventsForDay = [];
 
-        for(let i = 0; i < evts.length; i++) {
-            const event = evts[i];
+        for(let i = 0; i < useEvents.length; i++) {
+            const event = useEvents[i];
 
             if(isEventOnDate(date, event)) {
                 eventsForDay.push(event);
