@@ -579,7 +579,11 @@ function calendarToDOM(options, calendar) {
     const now = new Date();
 
     const year = options.year || now.getFullYear();
-    const month = options.month || now.getMonth();
+    let month = options.month;
+
+    if(month == null || month == undefined) {
+        month = now.getMonth();
+    }
 
     const monthLabels = options.monthLabels || calMonthLabels;
 
