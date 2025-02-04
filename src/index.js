@@ -685,9 +685,9 @@ function calendarToDOM(options, calendar) {
 
                     const dateBox = createClassedElement("div", "calendar-date" + weekClass + weekendClass);
 
-                    dateBox.dataset.year = year;
-                    dateBox.dataset.month = month;
-                    dateBox.dataset.day = day;
+                    dateBox.dataset.year = year.toString();
+                    dateBox.dataset.month = month.toString();
+                    dateBox.dataset.day = day.toString();
 
                     if(day == now.getDate() && month == now.getMonth() && year == now.getFullYear()) {
                         dateBox.classList.add("calendar-date-today");
