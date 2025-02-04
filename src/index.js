@@ -716,6 +716,8 @@ function calendarToDOM(options, calendar) {
                             dateBox.appendChild(eventsBox);
                         }
                     }
+
+                    day++;
                 }
             }
         }
