@@ -21,13 +21,19 @@ export class Calendar {
 
     getEventsForDay(date, evts) {
 
+        console.log(evts);
+
         let useEvents = evts;
 
         if(!useEvents) {
+            console.log("use base evnts");
             useEvents = this.events;
         }
 
-        if(!useEvents || !useEvents.length == 0) {
+        console.log(this.events);
+        console.log(useEvents);
+
+        if(!useEvents || useEvents.length == 0) {
             console.log("No events");
             console.log(this);
             return [];
