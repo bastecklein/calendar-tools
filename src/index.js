@@ -724,7 +724,12 @@ function calendarToDOM(options, calendar) {
                     }
 
                     day++;
+
                     fullCal.appendChild(dateBox);
+
+                    if(day > monthLength) {
+                        moreWeeks = false;
+                    }
                 }
             }
         }
