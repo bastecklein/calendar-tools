@@ -19,19 +19,21 @@ export class Calendar {
         }
     }
 
-    getEventsForDay(date, events) {
-        if(!events) {
-            events = this.events;
+    getEventsForDay(date, evts) {
+        if(!evts) {
+            evts = this.events;
         }
 
-        if(!events || !events.length == 0) {
+        if(!evts || !evts.length == 0) {
+            console.log("No events");
+            console.log(this);
             return [];
         }
 
         const eventsForDay = [];
 
-        for(let i = 0; i < events.length; i++) {
-            const event = events[i];
+        for(let i = 0; i < evts.length; i++) {
+            const event = evts[i];
 
             if(isEventOnDate(date, event)) {
                 eventsForDay.push(event);
