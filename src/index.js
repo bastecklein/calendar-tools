@@ -168,12 +168,6 @@ function isEventOnDate(date, event) {
     }
 
     const nowTime = date.getTime();
-    const startTime = startDate.getTime();
-    const endTime = endDate.getTime();
-
-    console.log(nowTime);
-    console.log(startTime);
-    console.log(endTime);
 
     if(nowTime >= event.startTime && nowTime <= event.endTime) {
         return true;
@@ -728,6 +722,12 @@ function calendarToDOM(options, calendar) {
                                     const icon = createClassedElement("img", "calendar-date-event-icon");
                                     icon.src = event.ezOfficeIcon;
                                     eventItem.appendChild(icon);
+                                } else {
+                                    if(event.icon) {
+                                        const icon = createClassedElement("img", "calendar-date-event-icon");
+                                        icon.src = event.icon;
+                                        eventItem.appendChild(icon);
+                                    }
                                 }
 
                                 const eventLabel = createClassedElement("div", "calendar-date-event-label", event.summary);
