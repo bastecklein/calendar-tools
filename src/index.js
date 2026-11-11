@@ -145,24 +145,30 @@ function isEventOnDate(date, event) {
         }
 
         if(event.rrule.freq == "monthly") {
-            if(event.rrule.bymonthday && parseInt(event.rrule.bymonthday) > 0) {
-                let monthLength = calDaysInMonth[month];
+            if(event.rrule.bymonthday) {
+                const byMonthDay = parseInt(event.rrule.bymonthday, 10);
 
-                if(month == 1 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))) {
-                    monthLength = 29;
+                if(!isNaN(byMonthDay)) {
+                    let monthLength = calDaysInMonth[month];
+
+                    if(month == 1 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))) {
+                        monthLength = 29;
+                    }
+
+                    /* iCalendar BYMONTHDAY: positive is a day of the month,
+                       negative counts back from the end, so -1 is the last day. */
+                    const useDay = byMonthDay > 0 ? byMonthDay : monthLength + byMonthDay + 1;
+
+                    if(useDay == day) {
+                        return true;
+                    }
                 }
+            } else {
+                const startDay = startDate.getDate();
 
-                const useDay = monthLength + parseInt(event.rrule.bymonthday) + 1;
-
-                if(useDay == day) {
+                if(startDay == day) {
                     return true;
                 }
-            }
-
-            const startDay = startDate.getDate();
-
-            if(startDay == day) {
-                return true;
             }
         }
     }

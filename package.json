@@ -1,8 +1,9 @@
 {
     "name": "calendar-tools",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Simple library for creating calendars with DOM elements.",
     "scripts": {
+        "test": "node --test tests/*.test.mjs",
         "build": "webpack --config webpack.common.cjs"
     },
     "keywords": ["helpers", "library", "ape apps", "module", "calendar"],
